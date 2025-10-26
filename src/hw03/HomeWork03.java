@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 	public class HomeWork03 {
 		public static void main(String[] args) {
-			triangleSolve();
+//			triangleSolve();
 //			randomGuessPlus();
+			bingo();
 		}
 
 //	測量三邊長：設三角形的三邊長分別為 (a,b,c)，且 (c) 是最長的一邊。
@@ -69,5 +70,44 @@ import java.util.Scanner;
 				break;
 			}
 		}
+	}
+	public static void bingo() {
+		Scanner answer = new Scanner(System.in);
+		System.out.println("阿文....請輸入你討厭哪個數字");
+		int num = answer.nextInt();
+		int count = 0;
+		answer.close();
+		for(int i = 1 ; i<50 ; i++) {
+			if((i/10)==num || (i%10)==num)
+				continue;
+			System.out.print(i+" ");
+			count++;
+			if((count%6)==0)
+				System.out.println();
+		}
+		System.out.println("總數"+count);
+//		===============================================
+//		int arrayNum = 0;
+//		int[] numArray = new int[count];
+//		for(int i = 1 ; i<50 ; i++) {
+//			if((i/10)==num || (i%10)==num)
+//				continue;
+//			numArray[arrayNum]=i;
+//			arrayNum++;
+//		}
+//		int[] bingoNum = new int[6];
+//		for(int i =0 ; i<6 ; i++) {
+//			bingoNum[i]=(int)(Math.random()*count)+1;
+//		}
+//		while(true) {
+//			for(int i =0 ;i<6; i++) {
+//				for(int j = 0 ; j<6; j++) {
+//					if(i==j)continue;
+//					if(bingoNum[i]==bingoNum[j])
+//						bingoNum[i]=(int)(Math.random()*count)+1;
+//				}
+//			}
+//		}
+
 	}
 }
