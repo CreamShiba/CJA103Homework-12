@@ -4,9 +4,14 @@ import java.util.Scanner;
 
 	public class HomeWork03 {
 		public static void main(String[] args) {
+//			===三角形與直角三角形判斷===
 //			triangleSolve();
+//			===猜數字===
+//			randomGuess();
+//			===猜數字進階===
 //			randomGuessPlus();
-			bingo();
+//			===大樂透及隨機抽取不重複===
+//			bingo();
 		}
 
 //	測量三邊長：設三角形的三邊長分別為 (a,b,c)，且 (c) 是最長的一邊。
@@ -86,28 +91,47 @@ import java.util.Scanner;
 				System.out.println();
 		}
 		System.out.println("總數"+count);
-//		===============================================
-//		int arrayNum = 0;
-//		int[] numArray = new int[count];
-//		for(int i = 1 ; i<50 ; i++) {
-//			if((i/10)==num || (i%10)==num)
-//				continue;
-//			numArray[arrayNum]=i;
-//			arrayNum++;
-//		}
-//		int[] bingoNum = new int[6];
-//		for(int i =0 ; i<6 ; i++) {
-//			bingoNum[i]=(int)(Math.random()*count)+1;
-//		}
-//		while(true) {
-//			for(int i =0 ;i<6; i++) {
-//				for(int j = 0 ; j<6; j++) {
-//					if(i==j)continue;
-//					if(bingoNum[i]==bingoNum[j])
-//						bingoNum[i]=(int)(Math.random()*count)+1;
-//				}
-//			}
-//		}
-
+//		=======建立1~49數字且不含討厭數字的陣列=======
+		int arrayNum = 0;
+		int[] numArray = new int[count];
+		for(int i = 1 ; i<50 ; i++) {
+			if((i/10)==num || (i%10)==num)
+				continue;
+			numArray[arrayNum]=i;
+			arrayNum++;
+		}
+//		========建立隨機6個抽取的陣列========
+		int[] bingoNum = new int[6];
+		for(int i =0 ; i<6 ; i++) {
+			bingoNum[i]=(int)(Math.random()*count);
+		}
+//      ======無限while迴圈直到全部數字檢查完且不重複===
+		boolean cheak =false;
+		while(cheak==false) {
+//		======第一個巢狀for循環替換重複的抽取數字=======
+			for(int i =0 ;i<6; i++) {
+				for(int j = 0 ; j<6; j++) {
+					if(i==j)continue;
+					if(bingoNum[i]==bingoNum[j])
+						bingoNum[i]=(int)(Math.random()*count);
+				}
+			}
+//		======第二個巢狀for循環檢查是否還有重複=========
+			outer:
+			for(int i =0; i<6; i++) {
+				for(int j = 0; j<6 ; j++) {
+					if(i==j)
+						continue;
+					if(bingoNum[i]==bingoNum[j])
+						break outer;
+					if(i==5&&j==4&&bingoNum[i]!=bingoNum[j]) 
+						cheak=true;
+				}
+			}
+		}
+		System.out.println("從中隨機抽取六個不重複數字");
+		for(int i =0 ;i<6; i++) {
+			System.out.print(numArray[bingoNum[i]]+" ");
+		}
 	}
 }
