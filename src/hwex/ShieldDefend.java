@@ -1,4 +1,4 @@
-package hw05;
+package hwex;
 
 public class ShieldDefend implements IDefendBehavior {
 	@Override

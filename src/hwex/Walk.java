@@ -1,4 +1,4 @@
-package hw05;
+package hwex;
 
 public class Walk implements IMoveBehavior{
 	public void move() {

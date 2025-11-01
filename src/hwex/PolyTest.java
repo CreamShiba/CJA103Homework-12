@@ -1,4 +1,4 @@
-package hw05;
+package hwex;
 
 public class PolyTest {
 	public static void main(String[] args) {
