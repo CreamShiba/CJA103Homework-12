@@ -3,6 +3,8 @@ package hw06;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import hw05.HomeWork05;
+
 public class CalTest {
 	public static void main(String[] args) {
 		Calculator test = new Calculator();
