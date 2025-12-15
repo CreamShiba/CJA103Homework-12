@@ -26,7 +26,8 @@ public class HomeWork07 {
 		int lineCount = 0;
 		
 		try {
-		File fis = new File("c:\\\\JAVA資料和作業題目\\\\Sample.txt");
+		File fis = new File(".\\Sample.txt");
+//		File fis = new File(".\\D:\\\\CJA103Homework-12\\\\Sample.txt");
 		BufferedReader bf = new BufferedReader(new FileReader(fis));
 		long bytes = fis.length();
 		while ((str = bf.readLine()) !=null) {
@@ -83,7 +84,7 @@ public class HomeWork07 {
 		}
 		
 	}
-	public static void copyFile(String aPath,String bPath) {
+	public static void qs3(String aPath,String bPath) {
 		File aFile = new File(aPath);
 		File bFile = new File(bPath);
 		String str;
